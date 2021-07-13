@@ -34,21 +34,21 @@ wget ${wget_options} http://www.rexswain.com/eicar.com > /dev/null
 if [ $? -ne 0 ]; then
     echo -ne "${GRE}Ok:${NC} EICAR cannot be downloaded"
 else
-    echo -ne "${RED}Error:${ENDCOLOR} EICAR can be downloaded"
+    echo -ne "${RED}Error:${NC} EICAR can be downloaded"
 fi
 echo "(1/3)."
 wget ${wget_options} http://www.rexswain.com/eicar.zip > /dev/null
 if [ $? -ne 0 ]; then
     echo -ne "${GRE}Ok:${NC} EICAR cannot be downloaded"
 else
-    echo -ne "${RED}Error:${ENDCOLOR} EICAR can be downloaded"
+    echo -ne "${RED}Error:${NC} EICAR can be downloaded"
 fi
 echo "(2/3)."
 wget ${wget_options} http://www.rexswain.com/eicar2.zip > /dev/null
 if [ $? -ne 0 ]; then
     echo -ne "${GRE}Ok:${NC} EICAR cannot be downloaded"
 else
-    echo -ne "${RED}Error:${ENDCOLOR} EICAR can be downloaded"
+    echo -ne "${RED}Error:${NC} EICAR can be downloaded"
 fi
 echo "(3/3)."
 
@@ -123,14 +123,14 @@ wget ${wget_options} http://www.esthetique-realm.net/ > /dev/null
 if [ $? -ne 0 ]; then
     echo -ne "${GRE}Ok:${NC} JS/Iframe.BYO!tr cannot be downloaded"
 else
-    echo -ne "${RED}Error:${ENDCOLOR} JS/Iframe.BYO!tr can be downloaded"
+    echo -ne "${RED}Error:${NC} JS/Iframe.BYO!tr can be downloaded"
 fi
 echo "(1/2)."
 wget ${wget_options} http://www.newalliancebank.com/ > /dev/null
 if [ $? -ne 0 ]; then
     echo -ne "${GRE}Ok:${NC} HTML/Refresh.250C!tr cannot be downloaded"
 else
-    echo -ne "${RED}Error:${ENDCOLOR} HTML/Refresh.250C!tr can be downloaded"
+    echo -ne "${RED}Error:${NC} HTML/Refresh.250C!tr can be downloaded"
 fi
 echo "(2/2)."
 
@@ -141,10 +141,16 @@ echo
 echo "Checking WebFilter (5):"
 wget ${wget_options} www.magikmobile.com > /dev/null
 if [ $? -ne 0 ]; then
-    echo -ne "${GRE}Ok:${NC} magikmobile cannot be accessed"
+    echo -ne "${GRE}Ok:${NC} magikmobile.com cannot be accessed"
 else
-    echo -ne "${RED}Error:${ENDCOLOR} magikmobile can be accessed"
+    echo -ne "${RED}Error:${NC} magikmobile.com can be accessed"
 fi
 echo "(1/5)."
-
+wget ${wget_options} www.cstress.net > /dev/null
+if [ $? -ne 0 ]; then
+    echo -ne "${GRE}Ok:${NC} cstress.net cannot be accessed"
+else
+    echo -ne "${RED}Error:${NC} cstress.net can be accessed"
+fi
+echo "(2/5)."
 # wget --no-check-certificate https://secure.eicar.org/eicar.com
