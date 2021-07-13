@@ -39,14 +39,12 @@ echo "Downloading MP3 files (2):"
 timeout 30 wget $wget_options http://www.gurbaniupdesh.org/multimedia/01-Audio%20Books/Baba%20Noadh%20Singh/000%20Introduction%20Bhai%20Sarabjit%20Singh%20Ji%20Gobindpuri.mp3  > /dev/null
 if [ $? -ne 0 ]; then
     echo "Error, cannot download MP3 files"
-    exit -1
 else
     echo "MP3 file can be downloaded normally (1/2)."
 fi
 timeout 30 wget $wget_options http://www.theradiodept.com/media/mp3/david.mp3 > /dev/null
 if [ $? -ne 0 ]; then
     echo "Error, cannot download MP3 files"
-    exit -1
 else
     echo "MP3 file can be downloaded normally (2/2)."
 fi
