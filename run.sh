@@ -9,7 +9,7 @@ wget_options='-qO- -T 30 -t 1'
 curl_options='-s -o /dev/null'
 
 echo
-echo "${YEL}General connectivity tests${NC}"
+echo -e "${YEL}General connectivity tests${NC}"
 echo "=========================="
 echo
 echo "Checking internet connectivity (1):"
@@ -66,39 +66,39 @@ echo "(2/2)."
 
 echo
 echo "Checking DLP(4)"
-echo "Credit Card (Amex):"
+echo "  Credit Card (Amex):"
 curl ${curl_options} -X POST  -H "Content-Type:multipart/form-data; boundary=---------------------------52410911313245418552292478843" -F 'item_meta[6]=371193356045439' http://dlptest.com/http-post
 if [ $? -ne 0 ]; then
-    echo -ne "${GRE}Ok:${NC} Cannot leak data"
+    echo -ne "   ${GRE}Ok:${NC} Cannot leak data"
 else
-    echo -ne "${RED}Error:${NC} Data seems to be leaked"
+    echo -ne "   ${RED}Error:${NC} Data seems to be leaked"
 fi
 echo "(1/4)."
 
-echo "Social security number:"
+echo "  Social security number:"
 curl ${curl_options} -X POST  -H "Content-Type:multipart/form-data; boundary=---------------------------52410911313245418552292478843" -F 'item_meta[6]=123-45-6789' http://dlptest.com/http-post
 if [ $? -ne 0 ]; then
-    echo -ne "${GRE}Ok:${NC} Cannot leak data"
+    echo -ne "   ${GRE}Ok:${NC} Cannot leak data"
 else
-    echo -ne "${RED}Error:${NC} Data seems to be leaked"
+    echo -ne "   ${RED}Error:${NC} Data seems to be leaked"
 fi
 echo "(2/4)."
 
-echo "Spanish ID number:"
+echo "  Spanish ID number:"
 curl ${curl_options} -X POST  -H "Content-Type:multipart/form-data; boundary=---------------------------52410911313245418552292478843" -F 'item_meta[6]=14332564D' http://dlptest.com/http-post
 if [ $? -ne 0 ]; then
-    echo -ne "${GRE}Ok:${NC} Cannot leak data"
+    echo -ne "   ${GRE}Ok:${NC} Cannot leak data"
 else
-    echo -ne "${RED}Error:${NC} Data seems to be leaked"
+    echo -ne "   ${RED}Error:${NC} Data seems to be leaked"
 fi
 echo "(3/4)."
 
-echo "Simple 3 digit number (should be leaked):"
+echo "  Simple 3 digit number (should be leaked):"
 curl ${curl_options} -X POST  -H "Content-Type:multipart/form-data; boundary=---------------------------52410911313245418552292478843" -F 'item_meta[6]=123' http://dlptest.com/http-post
 if [ $? -ne 0 ]; then
-    echo -ne "${RED}Error:${NC} Cannot leak/send non sensitive data"
+    echo -ne "   ${RED}Error:${NC} Cannot leak/send non sensitive data"
 else
-    echo -ne "${GRE}Ok:${NC} Non sensitive data can be sent"
+    echo -ne "   ${GRE}Ok:${NC} Non sensitive data can be sent"
 fi
 echo "(4/4)."
 # wget --no-check-certificate https://secure.eicar.org/eicar.com
