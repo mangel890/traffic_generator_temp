@@ -9,7 +9,6 @@ wget $wget_options https://www.google.com > /dev/null
 
 if [ $? -ne 0 ]; then
     echo "Error, cannot get any traffic. Accessing Google.com failed"
-    exit -1
 else
     echo "Google.com can be accessed. Internet connectivity"
 fi
@@ -21,21 +20,18 @@ if [ $? -ne 0 ]; then
     echo "Ok: EICAR cannot be downloaded (1/3)."
 else
     echo "Error: EICAR can be downloaded"
-    exit -1
 fi
 wget $wget_options http://www.rexswain.com/eicar.zip > /dev/null
 if [ $? -ne 0 ]; then
     echo "Ok: EICAR cannot be downloaded (2/3)."
 else
     echo "Error: EICAR can be downloaded"
-    exit -1
 fi
 wget $wget_options http://www.rexswain.com/eicar2.zip > /dev/null
 if [ $? -ne 0 ]; then
     echo "Ok: EICAR cannot be downloaded (3/3)."
 else
     echo "Error: EICAR can be downloaded"
-    exit -1
 fi
 
 echo
@@ -58,10 +54,11 @@ fi
 echo
 echo "Checking DLP(2)"
 
-curl -X POST http://dlptest.com/http-post -H "Content-Type:multipart/form-data; boundary=---------------------------52410911313245418552292478843" -d '-----------------------------52410911313245418552292478843\nContent-Disposition: form-data; name="item_meta[6]"\n\n371193356045439\n-----------------------------52410911313245418552292478843'
+curl -s -o /dev/null -X POST http://dlptest.com/http-post -H "Content-Type:multipart/form-data; boundary=---------------------------52410911313245418552292478843" -d '-----------------------------52410911313245418552292478843\nContent-Disposition: form-data; name="item_meta[6]"\n\n371193356045439\n-----------------------------52410911313245418552292478843'
 if [ $? -ne 0 ]; then
-    echo "Cannot leak data"
+    echo -n "Cannot leak data"
 else
-    echo "Warning: Data is leaked (1/2)."
+    echo -n "Data seems to be leaked (1/2)."
 fi
+echo "(1/2)."
 # wget --no-check-certificate https://secure.eicar.org/eicar.com
