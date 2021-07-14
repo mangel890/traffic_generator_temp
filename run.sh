@@ -141,7 +141,8 @@ sites=(www.magikmobile.com www.cstress.net www.ilovemynanny.com ww1.movie2kproxy
 echo
 echo "Checking WebFilter (${sites[@]}):"
 i=0
-for site in ${sites} do
+for site in ${sites}
+do
     wget ${wget_options} ${site} > /dev/null
     if [ $? -ne 0 ]; then
         echo -ne "${GRE}Ok:${NC} ${site} cannot be accessed"
