@@ -139,7 +139,7 @@ echo "(2/2)."
 #=============================
 sites=(www.magikmobile.com www.cstress.net www.ilovemynanny.com ww1.movie2kproxy.com www.microsofl.bid)
 echo
-echo "Checking WebFilter (!${sites[@]}):"
+echo "Checking WebFilter (${#sites[@]}):"
 i=0
 for site in ${sites[@]}
 do
@@ -149,7 +149,7 @@ do
     else
         echo -ne "${RED}Error:${NC} ${site} can be accessed"
     fi
-    echo "(${i}/${sites[@]})."
+    echo "(${i}/${#sites[@]})."
     i=$(($i+1))
 done
 
