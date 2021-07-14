@@ -157,7 +157,7 @@ done
 #=============================
 # AppControl
 #=============================
-sites=(www.logmeinrescue.com)
+sites=(www.logmeinrescue.com wget unblockvideos.com)
 echo
 echo "Checking AppControl (${#sites[@]}):"
 i=0
