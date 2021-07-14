@@ -143,6 +143,7 @@ echo "Checking WebFilter (${#sites[@]}):"
 i=0
 for site in ${sites[@]}
 do
+    i=$(($i+1))
     wget ${wget_options} ${site} > /dev/null
     if [ $? -ne 0 ]; then
         echo -ne "${GRE}Ok:${NC} ${site} cannot be accessed"
@@ -150,7 +151,6 @@ do
         echo -ne "${RED}Error:${NC} ${site} can be accessed"
     fi
     echo "(${i}/${#sites[@]})."
-    i=$(($i+1))
 done
 
 
