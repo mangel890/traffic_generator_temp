@@ -139,9 +139,9 @@ echo "(2/2)."
 #=============================
 sites=(www.magikmobile.com www.cstress.net www.ilovemynanny.com ww1.movie2kproxy.com www.microsofl.bid)
 echo
-echo "Checking WebFilter (${sites[@]}):"
+echo "Checking WebFilter (!${sites[@]}):"
 i=0
-for site in ${sites}
+for site in ${sites[@]}
 do
     wget ${wget_options} ${site} > /dev/null
     if [ $? -ne 0 ]; then
