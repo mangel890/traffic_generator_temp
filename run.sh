@@ -137,20 +137,20 @@ echo "(2/2)."
 #=============================
 # WebFilter
 #=============================
+sites=(www.magikmobile.com www.cstress.net www.ilovemynanny.com ww1.movie2kproxy.com www.microsofl.bid)
 echo
-echo "Checking WebFilter (5):"
-wget ${wget_options} www.magikmobile.com > /dev/null
-if [ $? -ne 0 ]; then
-    echo -ne "${GRE}Ok:${NC} magikmobile.com cannot be accessed"
-else
-    echo -ne "${RED}Error:${NC} magikmobile.com can be accessed"
-fi
-echo "(1/5)."
-wget ${wget_options} www.cstress.net > /dev/null
-if [ $? -ne 0 ]; then
-    echo -ne "${GRE}Ok:${NC} cstress.net cannot be accessed"
-else
-    echo -ne "${RED}Error:${NC} cstress.net can be accessed"
-fi
-echo "(2/5)."
+echo "Checking WebFilter (${sites[@]}):"
+i=0
+for site in ${sites} do
+    wget ${wget_options} ${site} > /dev/null
+    if [ $? -ne 0 ]; then
+        echo -ne "${GRE}Ok:${NC} ${site} cannot be accessed"
+    else
+        echo -ne "${RED}Error:${NC} ${site} can be accessed"
+    fi
+    echo "(${i}/${sites[@]})."
+    i=$(($i+1))
+done
+
+
 # wget --no-check-certificate https://secure.eicar.org/eicar.com
